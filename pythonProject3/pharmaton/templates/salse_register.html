@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="container content-section bg-font">
+		<div class="row">
+    		<div class="col col-4">
+				<form action="" method="post">
+					{{ form.hidden_tag() }}
+						<fieldset class="form-group ">
+							<legend class="border-bottom mb-4 fs-2 text-center">{{ legend }}</legend>
+							<div class="form-group">
+								{{ form.price.label(class='form-control-talble fs-5') }}
+								{% if form.price.errors %}
+									{{ form.price(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.price.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.price(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							<div class="form-group">
+								{{ form.does_available.label(class='form-control-talble fs-5') }}
+								{% if form.does_available.errors %}
+									{{ form.does_available(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.does_available.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.does_available(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							<div class="form-group">
+								{{ form.dose_sale.label(class='form-control-talble fs-5') }}
+								{% if form.dose_sale.errors %}
+									{{ form.dose_sale(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.dose_sale.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.dose_sale(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							<div class="form-group">
+								{{ form.medname.label(class='form-control-talble fs-5') }}
+								{% if form.medname.errors %}
+									{{ form.medname(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.medname.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.medname(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							<div class="form-group">
+								{{ form.profit.label(class='form-control-talble fs-5') }}
+								{% if form.profit.errors %}
+									{{ form.profit(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.profit.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.profit(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							
+						</fieldset>
+						<div class="form-group">
+							{{ form.submit(class='btn btn-outline-info form-control form-control-lg text-dark') }}
+						</div>
+				</form>
+			</div>
+			<!-- Table -->
+			<div class="col col-8">
+				<legend class="border-bottom mb-4 fs-2 text-center">Departure Data</legend>
+				<table class="table">
+  					<thead>
+    					<tr>
+      						<th scope="col">Bill No</th>
+      						<th scope="col">Price</th>
+      						<th scope="col">Does Available</th>
+      						<th scope="col">Does Sale</th>
+      						<th scope="col">Medicine Name</th>
+      						<th scope="col">Profit</th>
+    					</tr>
+  					</thead>
+  					{% for m in med %}
+  					<tbody>
+    					<tr>
+      						<th scope="row">{{ m.id }}</th>
+      							<td>{{ m.price }}</td>
+      							<td>{{ m.does_available }}</td>
+      							<td>{{ m.dose_sale }}</td>
+      							<td>{{ m.medname }}</td>
+      							<td>{{ m.profit }}%</td>
+    					</tr>
+  					</tbody>
+  					{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock content %}

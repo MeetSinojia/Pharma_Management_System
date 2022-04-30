@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+	
+	<div class="container">
+		<h1 class="text-center border-bottom mb-4">
+			Medicine
+		</h1>
+		
+	</div>	
+	<div class="container mt-4 mb-4">
+		<div class="container">
+  		<div class="row ">
+
+  				{% for e in emp %}
+    			<div class="col-lg-4 mt-4">
+      			<div class="card" style="width: 18rem;">
+  						<div class="card-header text-center bg-dark text-light">
+    						  {{ e.medname }}
+  						</div>
+  						  <ul class="list-group list-group-flush">
+    						  <li class="list-group-item">Medicine Type - {{ e.typemed }}</a></li>
+                  <li class="list-group-item">Company Name - {{ e.cmpname }}</li>
+                  <li class="list-group-item">Disease - {{ e.disease }}</li>
+                  <li class="list-group-item">Efficiency - {{ e.efficiency }} %</li>
+                  <li class="list-group-item">Sideeffect - {{ e.sideeffect }}</li>
+                  <li class="list-group-item">Expiry Date - {{ e.expdate }}</li>
+                  <li class="list-group-item">Manufacturing Date - {{ e.mfgdate }}</li>
+          		  </ul>
+      			</div>
+    			</div>
+          {% endfor %}
+  			</div>
+		</div>
+	</div>
+
+{% endblock content %}

@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="container content-section bg-font">
+		<div class="row justify-content-md-center">
+    		<div class="col col-lg-8">
+				<form action="" method="post">
+					{{ form.hidden_tag() }}
+						<fieldset class="form-group ">
+							<legend class="border-bottom mb-4 fs-2 text-center">{{ legend }}</legend>
+							<div class="form-group">
+								{{ form.medname.label(class='form-control-talble fs-5') }}
+								{% if form.medname.errors %}
+									{{ form.medname(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.medname.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.medname(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							<div class="form-group">
+								{{ form.efficiency.label(class='form-control-talble fs-5') }}
+								{% if form.efficiency.errors %}
+									{{ form.efficiency(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.efficiency.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.efficiency(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							<div class="form-group">
+								{{ form.sideeffect.label(class='form-control-talble fs-5') }}
+								{% if form.sideeffect.errors %}
+									{{ form.sideeffect(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.sideeffect.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.sideeffect(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							<div class="form-group">
+								{{ form.typemed.label(class='form-control-talble fs-5') }}
+								{% if form.typemed.errors %}
+									{{ form.typemed(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.typemed.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.typemed(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							<div class="form-group">
+								{{ form.cmpname.label(class='form-control-talble fs-5') }}
+								{% if form.cmpname.errors %}
+									{{ form.cmpname(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.cmpname.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.cmpname(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							<div class="form-group">
+								{{ form.disease.label(class='form-control-talble fs-5') }}
+								{% if form.disease.errors %}
+									{{ form.disease(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.disease.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.disease(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							<div class="row">
+								<div class="col-6">
+									<div class="form-group">
+										{{ form.expdate.label(class='form-control-talble fs-5') }}
+										{% if form.expdate.errors %}
+											{{ form.expdate(class='form-control form-control-lg is-invalid') }}
+												<div class="invalid-feedback">
+													{% for error in form.expdate.errors %}
+														<span>{{ error }}</span>
+													{% endfor %}
+												</div>
+										{% else %}
+											{{ form.expdate(class='form-control form-control-lg') }}
+										{% endif %}
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="form-group">
+										{{ form.mfgdate.label(class='form-control-talble fs-5') }}
+										{% if form.mfgdate.errors %}
+											{{ form.mfgdate(class='form-control form-control-lg is-invalid') }}
+												<div class="invalid-feedback">
+													{% for error in form.mfgdate.errors %}
+														<span>{{ error }}</span>
+													{% endfor %}
+												</div>
+										{% else %}
+											{{ form.mfgdate(class='form-control form-control-lg') }}
+										{% endif %}
+									</div>
+								</div>
+							</div>
+						</fieldset>
+						<div class="form-group">
+							{{ form.submit(class='btn btn-outline-info form-control form-control-lg text-dark') }}
+						</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock content %}

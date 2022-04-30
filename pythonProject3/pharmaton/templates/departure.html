@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="container content-section bg-font">
+		<div class="row">
+    		<div class="col col-4">
+				<form action="" method="post">
+					{{ form.hidden_tag() }}
+						<fieldset class="form-group ">
+							<legend class="border-bottom mb-4 fs-2 text-center">{{ legend }}</legend>
+							<div class="form-group">
+								{{ form.ref_no.label(class='form-control-talble fs-5') }}
+								{% if form.ref_no.errors %}
+									{{ form.ref_no(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.ref_no.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.ref_no(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							<div class="form-group">
+								{{ form.city.label(class='form-control-talble fs-5') }}
+								{% if form.city.errors %}
+									{{ form.city(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.city.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.city(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							<div class="form-group">
+								{{ form.medname.label(class='form-control-talble fs-5') }}
+								{% if form.medname.errors %}
+									{{ form.medname(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.medname.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.medname(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							<div class="form-group">
+								{{ form.depid.label(class='form-control-talble fs-5') }}
+								{% if form.depid.errors %}
+									{{ form.depid(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.depid.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.depid(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							<div class="form-group">
+								{{ form.vehicleno.label(class='form-control-talble fs-5') }}
+								{% if form.vehicleno.errors %}
+									{{ form.vehicleno(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.vehicleno.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.vehicleno(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+							
+						</fieldset>
+						<div class="form-group">
+							{{ form.submit(class='btn btn-outline-info form-control form-control-lg text-dark') }}
+						</div>
+				</form>
+			</div>
+
+			<!-- Table -->
+
+			<div class="col col-8">
+				<legend class="border-bottom mb-4 fs-2 text-center">Departure Data</legend>
+				<table class="table">
+  					<thead>
+    					<tr>
+      						<th scope="col">Ref No</th>
+      						<th scope="col">City</th>
+      						<th scope="col">Medicine Name</th>
+      						<th scope="col">DepId</th>
+      						<th scope="col">Vehicle No</th>
+    					</tr>
+  					</thead>
+  					{% for d in dep %}
+  					<tbody>
+    					<tr>
+      						<th scope="row">{{ d.ref_no }}</th>
+      							<td>{{ d.city }}</td>
+      							<td>{{ d.medname }}</td>
+      							<td>{{ d.depid }}</td>
+      							<td>{{ d.vehicleno }}</td>
+    					</tr>
+  					</tbody>
+  					{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock content %}

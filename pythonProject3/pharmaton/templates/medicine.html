@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block content %}
+	
+	<div class="container">
+		<h1 class="text-center border-bottom mb-4">
+			Medicine
+		</h1>
+		
+	</div>	
+	<div class="container mt-4 mb-4">
+		<div class="container">
+  			<div class="row justify-content-md-center">
+  				
+    			<div class="col-lg-4 mt-4">
+      				<div class="card" style="width: 18rem;">
+  						  <div class="card-header text-center bg-dark text-light">
+    						  {{ medicine.medname }}
+  						  </div>
+  						  <ul class="list-group list-group-flush">
+    						  <li class="list-group-item">Medicine Type - {{ medicine.typemed }}</a></li>
+                  <li class="list-group-item">Company Name - {{ medicine.cmpname }}</li>
+                  <li class="list-group-item">Disease - {{ medicine.disease }}</li>
+                  <li class="list-group-item">Efficiency - {{ medicine.efficiency }} %</li>
+                  <li class="list-group-item">Sideeffect - {{ medicine.sideeffect }}</li>
+                  <li class="list-group-item">Expiry Date - {{ medicine.expdate }}</li>
+                  <li class="list-group-item">Manufacturing Date - {{ medicine.mfgdate }}</li>
+          		  </ul>
+                {% if medicine.author==current_user %}
+                    <div>
+                      <a class="btn btn-secondary btn-sm mt-1 mb-1 ml-4" href="{{url_for('update_medicine', med_id=medicine.ref_no)}}">Update</a>
+                      <button class="btn btn-danger btn-sm m-1" data-bs-toggle="modal" data-bs-target="#deleteModal" >Delete</button>
+                    </div>
+                {% endif %}
+      			 </div>
+    			</div>
+  			</div>
+		</div>
+	</div>
+   <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel">Delete Medicine</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <form action="{{ url_for('delete_medicine', med_id=medicine.ref_no) }}" method="post">
+                <input class="btn btn-danger" type="submit" value="Delete" >
+              </form>
+          </div>
+        </div>
+      </div>
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="container content-section bg-font">
+		<div class="row justify-content-md-center">
+    		<div class="col col-lg-8">
+				<form action="" method="post">
+					{{ form.hidden_tag() }}
+						<fieldset class="form-group ">
+							<legend class="border-bottom mb-4 fs-2 text-center">Add Disease</legend>
+							<div class="form-group">
+								{{ form.disease.label(class='form-control-talble fs-5') }}
+								{% if form.disease.errors %}
+									{{ form.disease(class='form-control form-control-lg is-invalid') }}
+										<div class="invalid-feedback">
+											{% for error in form.disease.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+								{% else %}
+									{{ form.disease(class='form-control form-control-lg') }}
+								{% endif %}
+							</div>
+						</fieldset>
+						<div class="form-group">
+							{{ form.submit(class='btn btn-outline-info form-control form-control-lg text-dark') }}
+						</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock content %}

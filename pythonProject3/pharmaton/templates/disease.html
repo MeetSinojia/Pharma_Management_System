@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="container content-section bg-font mt-3">
+		<div class="row justify-content-md-center">
+    		<div class="col col-lg-8">
+				<legend class="border-bottom mb-4 fs-1 text-center">Disease</legend>
+			</div>
+		</div>
+	</div>
+	{% for d in disease %}
+	<div class="container content-section bg-font mb-3">
+		<div class="row justify-content-md-center">
+    		<div class="col col-lg-8">
+				<a href="{{ url_for(d.disease) }}" class="btn btn-outline-info form-control form-control-lg fs-3">{{ d.disease }}</a>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+{% endblock content %}
